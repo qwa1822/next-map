@@ -1,13 +1,15 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import Layout from "@/component/Layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div>
+    <>
       <h1>Map Index Page</h1>
+
       <ul>
         <li>
           <Link href="/stores">맛집목록</Link>
@@ -34,6 +36,6 @@ export default function Home() {
           <Link href="/users/likes">찜한 맛집ㄴ</Link>
         </li>
       </ul>
-    </div>
+    </>
   );
 }
