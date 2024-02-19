@@ -2,32 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.navbar {
+  @apply flex justify-between items-center bg-white fixed w-full h-[52px] top-0 shadow-sm;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.navbar__logo {
+  @apply text-blue-800 text-lg font-semibold cursor-pointer px-[18px] py-0;
+}
+
+.navbar__list {
+  @apply px-[18px] flex gap-3 items-center py-0;
+}
+
+.navbar__list--item {
+  @apply cursor-pointer;
+}
+
+.navbar__list--item:hover {
+  @apply text-gray-600;
+}
+.navbar__button {
+  @apply hidden cursor-pointer;
+}
+
+.layout {
+  @apply pt-[52px];
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar__list {
+    @apply hidden;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  .navbar__mobile {
+    @apply fixed w-full text-white h-screen top-[52px] bg-blue-500;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .navbar__button {
+    @apply block px-[18px] cursor-pointer;
+  }
+
+  .navbar__list--mobile {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    padding: 0px 52px;
+
+    @apply flex flex-col items-center px-0 py-[52px];
+  }
+  .navbar__list--item--mobile:hover {
+    @apply text-red-500;
+  }
+  .navbar__list--item--mobile {
+    @apply py-[22px] px-[18px] cursor-pointer;
   }
 }
